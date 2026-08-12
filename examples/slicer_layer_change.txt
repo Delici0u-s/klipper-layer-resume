@@ -1,0 +1,42 @@
+klipper-layer-resume: slicer setup
+==============================
+
+Add PLR_LOG on its own line to the layer change G-code. Keep whatever is
+already there.
+
+
+OrcaSlicer / Bambu Studio
+-------------------------
+Printer Settings -> Machine G-code -> "Layer change G-code"
+
+    ;AFTER_LAYER_CHANGE
+    ;[layer_z]
+    PLR_LOG
+
+
+PrusaSlicer / SuperSlicer
+-------------------------
+Printer Settings -> Custom G-code -> "After layer change G-code"
+
+    ;AFTER_LAYER_CHANGE
+    ;[layer_z]
+    PLR_LOG
+
+
+Cura
+----
+Extensions -> Post Processing -> Modify G-Code
+-> "Insert at layer change", Position: After
+
+    PLR_LOG
+
+
+If you already call something else at layer change (for example
+TIMELAPSE_TAKE_FRAME), leave it and add PLR_LOG on its own line.
+
+
+IMPORTANT
+---------
+The hook is baked into the sliced file, not read from config. Re-slice
+anything you want covered. Files sliced before this change contain no
+recovery points, and PLR_STATUS will stay empty while they print.

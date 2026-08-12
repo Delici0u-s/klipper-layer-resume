@@ -1,0 +1,17 @@
+# ---------------------------------------------------------------------------
+# klipper-layer-resume: add this include to printer.cfg.
+# ---------------------------------------------------------------------------
+
+[include plr/plr.cfg]
+
+# plr.cfg contains its own [force_move] enable_force_move: True, which is
+# what makes SET_KINEMATIC_POSITION available. If you already have a
+# [force_move] section elsewhere, delete the one at the top of plr.cfg and
+# set enable_force_move: True in yours instead - duplicate sections are a
+# hard config error.
+
+# [virtual_sdcard] is required. On most installs it already lives in
+# fluidd.cfg or mainsail.cfg:
+#
+#   [virtual_sdcard]
+#   path: ~/printer_data/gcodes
